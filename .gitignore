@@ -1,0 +1,6 @@
+### Virtural Envirnment ###
+r301env/
+
+### Python Cache ###
+__pycache__/
+*/__pycache__/
