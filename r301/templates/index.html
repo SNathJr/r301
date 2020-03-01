@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>R301: A simple URL shortner</title>
+    </head>
+
+    <body>
+        <h4 class="display-4 text-center">R301: <small>A Simple URL shortner</small></h4>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissable text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        <form class="container" action="/" method="POST"> {% csrf_token %}
+            <div class="form-group">
+                <label for="urltoshorten">Enter the URL to shorten</label>
+                <input type="url" class="form-control" id="urltoshorten" name="long_url" aria-describedby="longURLHelp" placeholder="Enter the URL to shorten" required>
+                <small id="longURLHelp" class="form-text text-muted">Make sure this URL is up and working.</small>
+            </div>
+            <div class="form-group">
+                <label for="shorturl">Enter desired short URL</label>
+                <div class="form-row">
+                    <span class="col-sm-2 col-md-1">r301.cf/</span>
+                    <input type="text" class="form-control col-sm-10 col-md-11" id="shorturl" name="short_url" placeholder="shorturl" required>
+                    <small id="longURLHelp" class="form-text text-muted">Make sure you note down this URL before submitting.</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
